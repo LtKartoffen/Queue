@@ -1,6 +1,6 @@
 // queue.cpp -- Customer's and Queue's methods
 #include "queue.h"
-
+#include <cstdlib>	
 // Queue's methods
 Queue::Queue(int qs) : qsize(qs)
 {
@@ -27,6 +27,11 @@ bool Queue::isempty() const
 bool Queue::isfull() const
 {
 	return items == qsize;
+}
+
+int Queue::queuecount() const
+{
+	return items;
 }
 
 // Add Customer in queue
@@ -64,6 +69,6 @@ bool Queue::dequeue(Item& item)
 // Customer's method
 void Customer::set(long when)
 {
-	processtime = rand() % 3 + 1;
+	processtime = std::rand() % 3 + 1;
 	arrive = when;
 }
